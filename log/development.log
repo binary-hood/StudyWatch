@@ -66471,3 +66471,11 @@ Completed 200 OK in 34ms (Views: 31.8ms | ActiveRecord: 0.0ms)
 
   [1m[35m (2.7ms)[0m  [1m[35mCREATE DATABASE "db/development"."sqlite3" ENCODING = 'utf8'[0m
   ↳ /Users/faseeh/.rvm/rubies/ruby-2.7.2/lib/ruby/gems/2.7.0/gems/rake-13.0.1/lib/rake/task.rb:281
+DEPRECATION WARNING: Using legacy connection handling is deprecated. Please set
+`legacy_connection_handling` to `false` in your application.
+
+The new connection handling does not support `connection_handlers`
+getter and setter.
+
+Read more about how to migrate at: https://guides.rubyonrails.org/active_record_multiple_databases.html#migrate-to-the-new-connection-handling
+ (called from <main> at /Users/faseeh/Desktop/StudyWatch/app/models/application_record.rb:1)
