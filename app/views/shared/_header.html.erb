@@ -1,0 +1,54 @@
+<section class="hero is-dark is-small">
+  <div class="hero-head">
+    <nav class="navbar">
+      <div class="container">
+        <div class="navbar-brand">
+           <%= link_to entries_path, class: "navbar-item" do %>
+           <img src="https://img.icons8.com/wired/64/null/tasks.png"/>
+           <span class="has-textweight-bold is-sizei2 ml-2"></span>
+           <% end %>
+
+          <span class="navbar-burger burger" data-target="navbarMenuHeroA">
+            <span></span>
+            <span></span>
+            <span></span>
+          </span>
+        </div>
+        <!--  rendering the navbar so when user is signed in show a specific buttons and when signed out he cannot access the entries and categories but he can still contact us  -->
+        <div id="navbarMenuHeroA" class="navbar-menu">
+          <div class="navbar-end">
+            <span class="navbar-item">
+                <% if user_signed_in? %>
+                    <%= link_to "#{current_user.email}", edit_user_registration_path, class: "button is-warning is-rounded is-outlined" %>
+                    <%= link_to 'Home', home_home_path, class: "button is-info is-rounded is-outlined" %>
+                    <%= link_to 'Contact', contact_path, class: "button is-link is-rounded is-outlined" %>
+                    <%= link_to "Tasks", entries_path, class: "button is-success is-rounded is-outlined" %>
+                    <%= link_to "Modules", categories_path, class: "button is-danger is-rounded is-outlined" %>
+                    <%= link_to "Reminders", reminders_path, class: "button is-primary is-rounded is-outlined" %>
+                    <%= link_to 'Logout', destroy_user_session_path, method: 'delete', class: "button is-info is-rounded is-outlined"  %>
+                <% else %>
+                    <%= link_to 'Contact', contact_path, class: "button is-warning"  %>
+                    <%= link_to 'Home', home_home_path, class: "button is-info is-danger" %>
+                    <%= link_to 'Login', new_user_session_path, class: "button is-info" %>
+                    <%= link_to 'Sign-up', new_user_registration_path, class: "button is-success"  %>
+                <% end %>
+           </span>
+          </div>
+        </div>
+      </div>
+    </nav>
+  </div>
+
+<!-- title rendered -->
+  <div class="hero-body">
+    <div class="container has-text-centered">
+      <h1 class="title">
+        <% if content_for(:title) %>
+          <% yield :title %>
+        <% else %>
+           Study-Watch
+        <% end %>
+      </h1>
+    </div>
+  </div>
+</section>

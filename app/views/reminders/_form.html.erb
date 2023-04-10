@@ -1,0 +1,26 @@
+<%= form_with(model: reminder, local: true) do |form| %>
+  <% if reminder.errors.any? %>
+    <div class="message is-danger">
+        <div class="message-header">
+          <p><h2><%= pluralize(reminder.errors.count, "error") %> prohibited this reminder from being saved:</h2></p>
+       </div>
+
+      <div class="message-body">
+      <ul>
+      <% reminder.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :reminder, class: "label" %>
+    <%= form.text_field :reminder, class: "input" %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit class: "button is-success" %>
+  </div>
+<% end %>

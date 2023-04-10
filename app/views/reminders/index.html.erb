@@ -1,0 +1,22 @@
+<div class="columns is-centered mt-6">
+   <div class="column is-half">
+     <% @reminders.each  do |reminder| %>
+            <div class="card">
+             <div class="card-content">
+               <strong><%= reminder.reminder %></strong><br/>
+                <p class="italic">Your Reminder <%= time_ago_in_words(reminder.created_at) %> ago</p>
+             </div>
+
+             <div class="card-footer">
+                 <%= link_to 'Show', reminder, class: "card-footer-item" %>
+                 <%= link_to 'Edit', edit_reminder_path(reminder), class: "card-footer-item" %>
+                 <%= link_to 'Destroy', reminder, method: :delete, data: { confirm: 'Are you sure?'}, class: "card-footer-item" %>
+             </div>
+           </div>
+         <% end %>
+</div>
+</div>
+
+<div class="columns is-centered mt-6">
+  <%= link_to 'New Reminder', new_reminder_path, class: "button is-danger is-outlined is-centered" %>
+</div>

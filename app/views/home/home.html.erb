@@ -1,0 +1,276 @@
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title><%= t('.app_title') %></title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/overlayscrollbars/1.9.1/css/OverlayScrollbars.min.css'>
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
+  <link rel="stylesheet" href="https://unpkg.com/bulma@0.9.0/css/bulma.min.css" />
+
+  <link rel="stylesheet" href="https://unpkg.com/bulma-modal-fx/dist/css/modal-fx.min.css" />
+  <style>
+  .columns:nth-child(2)
+  {margin-top: -10rem;}
+  </style>
+
+  <section class="hero is-info is-small">
+    <div class="hero-body">
+      <div class="container has-text-centered">
+        <p class="title">
+          <%= t('.track') %>
+        </p>
+      </div>
+    </div>
+  </section>
+  <div class="box cta">
+    <p class="has-text-centered">
+      <% if user_signed_in? %>
+        <span class="tag is-primary"><%= t('.zack') %><%= link_to "Create Module", categories_path %></span>
+      <% else %>
+        <span class="tag is-primary"><%= t('.login') %></span><%= t('.cool') %>
+      <% end %>
+    </p>
+  </div>
+  <section class="container">
+    <div class="columns features">
+      <div class="column is-4">
+        <div class="card is-shady">
+          <div class="card-image">
+            <figure class="image is-4by3">
+              <img src="https://images.unsplash.com/photo-1678846851706-abb02d1574aa?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8NTV8fHRhc2tzfGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=900&q=60" alt="Placeholder image" class="modal-button" data-target="modal-image2">
+            </figure>
+          </div>
+          <div class="card-content">
+            <div class="content">
+              <h4>Tasks</h4>
+              <p>With our website, students can easily create tasks for specific modules and keep track of important notes and deadlines. Our platform allows you to store all your task-related information, including the task name, task description, due date, notes, and even instructor name.</p>
+              <p>By using this feature, you will  be able to stay organized and on top of your academic responsibilities. Simply create your task and let our platform take care of the rest. Never miss a deadline or forget important details again with our easy-to-use task tracking system.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="column is-4">
+        <div class="card is-shady">
+          <div class="card-image">
+            <figure class="image is-4by3">
+              <img src="https://images.unsplash.com/photo-1535982330050-f1c2fb79ff78?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1548&q=80" alt="Placeholder image">
+            </figure>
+          </div>
+          <div class="card-content">
+            <div class="content">
+              <h4>Modules</h4>
+              <p>Our website provides students with an easy and efficient way to organize their studies. By creating modules for the courses you are studying, you can easily manage your coursework and assignments. With our platform, you can add tasks and notes to each module, keeping everything in one centralized location.</p>
+              <p>This means you will never lose track of important information or miss a deadline. By using our module system, you can easily prioritize your work and stay on top of your studies. With just a few clicks, you can create a module for each of your courses and start managing your coursework more effectively.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="column is-4 modal-button" data-target="modal-image">
+        <div class="card is-shady">
+          <div class="card-image">
+            <figure class="image is-4by3">
+              <img src="https://plus.unsplash.com/premium_photo-1661900462928-2fd7dec04c06?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTN8fHJlbWluZGVyc3xlbnwwfHwwfHw%3D&auto=format&fit=crop&w=900&q=60" alt="Placeholder image">
+            </figure>
+          </div>
+          <div class="card-content">
+            <div class="content">
+              <h4>Reminders</h4>
+              <p>Welcome to our website! As a university student, it can be challenging to remember all of the important tasks and deadlines that come with managing your studies. That's why we've created a <strong>reminder feature</strong> that allows you to create custom reminders for anything you want to keep track of. <strong>You can set reminders for upcoming assignments, exams, group meetings, or any other important events in your university life.</strong></p>
+              <p>With our user-friendly interface, you can easily create and manage reminders, set due dates and times, and receive notifications to keep you on track. Our reminder feature is designed to help you stay organized and make the most of your university experience.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </section>
+  <footer>
+    <section class="section">
+      <div class="container">
+        <div class="columns is-multiline">
+          <div class="column is-one-third">
+            <article class="notification media has-background-white">
+              <figure class="media-left">
+                <span class="icon">
+                  <i class="has-text-warning fa fa-columns fa-lg"></i>
+                </span>
+              </figure>
+              <div class="media-content">
+                <div class="content">
+                  <h1 class="title is-size-4"><%= t('.tasks') %></h1>
+                  <p class="is-size-5 subtitle">
+                  Create and manage tasks for all your courses in one <strong>centralized</strong> location
+                  </p>
+                </div>
+              </div>
+            </article>
+          </div>
+          <div class="column is-one-third">
+            <article class="notification has-background-white media">
+              <figure class="media-left">
+                <span class="icon has-text-info">
+                  <i class="fa fa-lg fa-wpforms"></i>
+                </span>
+              </figure>
+              <div class="media-content">
+                <div class="content">
+                  <h1 class="title is-size-4"><%= t('.reminders') %></h1>
+                  <p class="is-size-5 subtitle">
+                    Set reminders for upcoming assignments, exams, and other important events.
+                  </p>
+                </div>
+              </div>
+            </article>
+          </div>
+          <div class="column is-one-third">
+            <article class="notification has-background-white media">
+              <figure class="media-left">
+                <span class="icon has-text-danger">
+                  <i class="fa fa-lg fa-cubes"></i>
+                </span>
+              </figure>
+              <div class="media-content">
+                <div class="content">
+                  <h1 class="title is-size-4"><%= t('.due_date') %></h1>
+                  <p class="is-size-5 subtitle">
+                    Never miss a <strong>deadline</strong> again by keeping track of due dates for all your coursework.
+                  </p>
+                </div>
+              </div>
+            </article>
+          </div>
+          <div class="column is-one-third">
+            <article class="notification has-background-white media">
+              <figure class="media-left">
+                <span class="icon has-text-grey">
+                  <i class="fa fa-lg fa-cogs"></i>
+                </span>
+              </figure>
+              <div class="media-content">
+                <div class="content">
+                  <h1 class="title is-size-4"><%= t('.notes') %></h1>
+                  <p class="is-size-5 subtitle">
+                    Easily take and organize notes for all your courses in one convenient location.
+                  </p>
+                </div>
+              </div>
+            </article>
+          </div>
+          <div class="column is-one-third">
+            <article class="notification has-background-white media">
+              <figure class="media-left">
+                <span class="icon has-text-primary">
+                  <i class="fa fa-lg fa-superpowers"></i>
+                </span>
+              </figure>
+              <div class="media-content">
+                <div class="content">
+                  <h1 class="title is-size-4"><%= t('.time_mang') %></h1>
+                  <p class="is-size-5 subtitle">
+                    Effectively manage your time and prioritize your studies with our user-friendly platform.
+                  </p>
+                </div>
+              </div>
+            </article>
+          </div>
+          <div class="column is-one-third">
+            <article class="notification has-background-white media">
+              <figure class="media-left">
+                <span class="icon has-text-danger">
+                  <i class="fa fa-lg fa-cube"></i>
+                </span>
+              </figure>
+              <div class="media-content">
+                <div class="content">
+                  <h1 class="title is-size-4"><%= t('.category') %></h1>
+                  <p class="is-size-5 subtitle">
+                    Choose the specific/create a module so you can <strong>Select </strong> it from the drop down menu
+                  </p>
+                </div>
+              </div>
+            </article>
+          </div>
+        </div>
+      </div>
+    </section>
+    <% if user_signed_in? %>
+    <div class="content has-text-centered">
+          <div class="control level-item">
+                 <div class="tags has-addons">
+                <span class="tag is-success"><%= link_to 'Logout', destroy_user_session_path, method: 'delete' %></span>
+             </div>
+      <% else %>
+      <div class="content has-text-centered">
+        <div class="control level-item">
+          <a href="/users/sign_up">
+            <div class="tags has-addons">
+              <span class="tag is-dark">Signup</span>
+            </div>
+          </a>
+          <a href="/users/sign_in">
+            <div class="tags has-addons">
+              <span class="tag is-info">Login</span>
+            </div>
+          </a>
+        </div>
+        </div>
+    <% end %>
+  </footer>
+
+<footer class="footer">
+  <div class="content has-text-centered">
+    <p>
+      <strong>Study-Watch</strong> by Ahsan Lodhi. Contact-Me
+      <a href="/contact">+44-7585968835</a>. Study-Watch is open to Suggestions. <strong>Copyrights-2023</strong>.
+    </p>
+  </div>
+</footer>
+  <!--  ===============
+  HERE BE MODALS
+  ===============  -->
+  <!-- 3dFlipVertical card tiny -->
+
+  <!-- end tiny modal card -->
+  <!-- 3dFlipVertical card tiny [butterfly] -->
+
+  <!-- end tiny modal card -->
+  <!-- Image modal -->
+   <div id="modal-image2" class="modal modal-fx-3dSlit">
+     <div class="modal-background"></div>
+     <div class="modal-content is-huge is-image">
+      <!-- content -->
+       <img src="https://3dtxp19t9eb3fmumt31248pw-wpengine.netdna-ssl.com/uploads/2020/09/Science-and-difficulty-of-calorie-tracking-whoop.png" alt="image">
+      <!-- end content -->
+     </div>
+     <button class="modal-close is-large" aria-label="close"></button>
+  </div>
+  <!-- Image modal -->
+  <div id="modal-image4" class="modal modal-fx-3dSlit">
+    <div class="modal-background"></div>
+    <div class="modal-content is-huge is-image">
+      <!-- content -->
+      <img src="https://source.unsplash.com/hLyd1LukQ7E" alt="butterfly">
+      <!-- end content -->
+    </div>
+    <button class="modal-close is-large" aria-label="close"></button>
+  </div>
+  <!-- Image modal-->
+  <div id="modal-image" class="modal modal-fx-superScaled">
+    <div class="modal-background"></div>
+    <div class="modal-content  is-image">
+      <!-- content -->
+      <img src="https://img.freepik.com/free-vector/people-exercising-indoors-home-yoga-fitness-healthy-lifestyle_190729-96.jpg?size=626&ext=jpg" alt="Placeholder image">
+      <!--     <img src="https://source.unsplash.com/zFrUz_tNjCY" alt="placeholder">
+      -->    <!-- end content -->
+       </div>
+        <button class="modal-close is-large" aria-label="close"></button>
+         </div>
+              <script src="https://unpkg.com/bulma-modal-fx/dist/js/modal-fx.min.js"></script>
+            <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+
+            <script>
+      document.addEventListener("DOMContentLoaded", function() {
+      //The first argument are the elements to which the plugin shall be initialized
+      //The second argument has to be at least a empty object or a object with your desired options
+      OverlayScrollbars(document.querySelectorAll("body"), { });
+      });
+      </script>

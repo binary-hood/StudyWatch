@@ -1,0 +1,19 @@
+<div class="columns is-centered mt-6">
+   <div class="column is-half">
+     <% @categories.each  do |category| %>
+            <div class="card">
+             <div class="card-content">
+               <strong><%= category.title %></strong><br/>
+             </div>
+             <div class="card-footer">
+                 <%= link_to 'Show', category, class: "card-footer-item" %>
+                 <%= link_to 'Edit', edit_category_path(category), class: "card-footer-item" %>
+                 <%= link_to 'Destroy', category, method: :delete, data: { confirm: 'Are you sure?' }, class: "card-footer-item" %>
+             </div>
+           </div>
+         <% end %>
+</div>
+</div>
+<div class="columns is-centered mt-6">
+  <%= link_to t('.create_category'), new_category_path, class: "button is-link is-outlined is-centered" %>
+</div>

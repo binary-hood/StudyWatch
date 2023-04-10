@@ -1,0 +1,56 @@
+<%= form_with(model: entry, local: true) do |form| %>
+  <% if entry.errors.any? %>
+
+    <div class="message is-danger">
+      <div class="message-header">
+         <p><h2><%= pluralize(entry.errors.count, "error") %> prohibited this entry from being saved:</h2></p>
+      </div>
+
+
+      <div class="message-body">
+          <ul>
+           <% entry.errors.full_messages.each do |message| %>
+           <li><%= message %></li>
+           <% end %>
+           </ul>
+    </div>
+    </div>
+  <% end %>
+
+ 
+  <div class="field">
+    <%= form.label :task_name, class: "label" %>
+    <%= form.text_field :task_name, class: "input" %>
+  </div>
+
+  <div class="field">
+    <%= form.label :task_description, class: "label" %>
+    <%= form.text_area :task_description, class: "input" %>
+  </div>
+
+  <div class="field">
+    <%= form.label :due_date, class: "label" %>
+    <%= form.date_field :due_date, class: "input" %>
+  </div>
+
+  <div class="field">
+    <%= form.label :notes, class: "label" %>
+    <%= form.text_field :notes, class: "input" %>
+  </div>
+
+  <div class="field">
+    <%= form.label :instructor_name, class: "label" %>
+    <%= form.text_field :instructor_name, class: "input" %>
+  </div>
+
+  <div class="field">
+    <%= form.label :category, class: "label" %>
+    <div class="select">
+    <%= form.select :category_id, Category.user_categories(current_user).collect  {|u| [u.title, u.id]} %>
+    </div>
+  </div>
+
+  <div class="actions">
+    <%= form.submit class: "button is-success" %>
+  </div>
+<% end %>

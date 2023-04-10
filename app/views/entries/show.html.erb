@@ -1,0 +1,36 @@
+<!-- designed the code and using field and jquery -->
+<div class="columns mt-6 is-centered">
+  <div class="column is-one-third">
+    <nav class="panel is-link">
+      <p class="panel-heading">
+          <%= @entry.task_name %>:
+          <%= @entry.category.title %>
+      </p>
+
+      <div class="panel-block">
+          <%= t('.task_desc') %><%= @entry.task_description %>
+      </div>
+
+      <div class="panel-block">
+        <%= t('.due_date') %><%= @entry.due_date %>
+      </div>
+
+      <div class="panel-block">
+        <%= t('.notes') %><%= @entry.notes %>
+      </div>
+
+      <div class="panel-block">
+        <%= t('.instruct') %><%= @entry.instructor_name %>
+     </div>
+   </nav>
+
+  <div class="columns is-mobile">
+     <div class="column">
+        <%= link_to 'Edit', edit_entry_path(@entry), class: "button is-gray"%>
+        <%= link_to 'Tasks', entries_path, class: "button is-gray"%>
+     </div>
+     <div class="column">
+     </div>
+   </div>
+ </div>
+</div>

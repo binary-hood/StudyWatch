@@ -1,0 +1,19 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+lunch:
+  user: one
+  meal_type: "Lunch"
+  calories: 300
+  protien: 200
+  carbohydrates: 50
+  fats: 50
+  category: one
+
+Dinner:
+  user: two
+  meal_type: "Dinner"
+  calories: 700
+  protien: 500
+  carbohydrates: 100
+  fats: 100
+  category: two

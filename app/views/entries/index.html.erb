@@ -1,0 +1,26 @@
+<div class="columns is-centered mt-6">
+   <div class="column is-half">
+     <% @entries.each  do |entries| %>
+            <div class="card">
+             <div class="card-content">
+               <strong><%= entries.task_name %> | <%= entries.category.title %></strong><br/>
+                <%= t('.task_des') %><%= entries.task_description %><br/>
+                <%= t('.due') %><%= entries.due_date %><br/>
+                <%= t('.note') %><%= entries.notes%><br/>
+                <%= t('.instructor') %><%= entries.instructor_name %>
+                <p class="italic">Created <%= time_ago_in_words(entries.created_at) %> ago</p>
+             </div>
+
+             <div class="card-footer">
+                 <%= link_to 'Show', entries, class: "card-footer-item" %>
+                 <%= link_to 'Edit', edit_entry_path(entries), class: "card-footer-item" %>
+                 <%= link_to 'Destroy', entries, method: :delete, data: { confirm: 'Are you sure?'}, class: "card-footer-item" %>
+             </div>
+           </div>
+         <% end %>
+</div>
+</div>
+
+<div class="columns is-centered mt-6">
+  <%= link_to t('.create_entry'), new_entry_path, class: "button is-success is-outlined is-centered" %>
+</div>

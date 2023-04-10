@@ -1,0 +1,70 @@
+ <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title><%= t('.tittle') %></title>
+  <link rel="shortcut icon" href="../images/fav_icon.png" type="image/x-icon">
+  <!-- Bulma Version 0.9.0-->
+  <link rel="stylesheet" href="https://unpkg.com/bulma@0.9.0/css/bulma.min.css" />
+  <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet"
+        integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+
+
+  <!-- END NAV -->
+  <section class="hero is-fullheight">
+    <div class="hero-body">
+      <div class="container has-text-centered">
+        <div class="columns is-8 is-variable ">
+          <div class="column is-two-thirds has-text-left">
+            <h1 class="title is-1"><%= t('.title') %></h1>
+            <p class="is-size-4"><%= t('.contact_us') %></p>
+            <div class="social-media">
+              <a href="https://facebook.com" target="_blank" class="button is-light is-large"><i class="fa fa-facebook-square" aria-hidden="true"></i></a>
+              <a href="https://instagram.com" target="_blank" class="button is-light is-large"><i class="fa fa-instagram" aria-hidden="true"></i></a>
+              <a href="https://twitter.com" target="_blank" class="button is-light is-large"><i class="fa fa-twitter" aria-hidden="true"></i></a>
+            </div>
+          </div>
+          <div class="column is-one-third has-text-left">
+            <%= form_tag request_contact_path, method: 'post' do %>
+            <div class="field">
+              <%= label_tag :name, t('.name'), class: "label" %>
+              <div class="control">
+                <%= text_field_tag :name, '', title: t('.enter_name'), size:50, class: "input is-medium", :minlength=>"2", :maxlength=>"25" %>
+              </div>
+            </div>
+            <div class="field">
+              <%= label_tag :email, t('.email'), class: "label" %>
+              <div class="control">
+                <%= email_field_tag :email,'', title: t('.enter_email'), class: "input is-medium" %>
+              </div>
+            </div>
+            <div class="field">
+              <%= label_tag :telephone, t('.telephone'), class: "label" %>
+              <div class="control">
+                <%= telephone_field_tag :telephone, '', title: t('.enter_telephone'), class: "input is-medium" , :minlength=>10, :maxlength=>18 %>
+              </div>
+            </div>
+            <div class="field">
+              <%= label_tag :message, t('.message'), class: "label" %>
+              <div class="control">
+                <%= text_field_tag :message, '', title: t('.enter_message'), class: "textarea is-medium" %>
+              </div>
+            </div>
+            <div class="control">
+              <%= submit_tag t('.submit'), class: "button is-link is-fullwidth has-text-weight-medium is-medium" %>
+            </div>
+          <% end %>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+<!-- footer designed for the contact -->
+<footer class="footer">
+<div class="content has-text-centered">
+  <p>
+    <strong>Study-Watch</strong> by Ahsan Lodhi</a>. Contact-Us
+    <a href="/contact">+44-7585968835</a>. We are open to Suggestions. <strong>Copyrights-2023</strong>.
+  </p>
+</div>
+</footer>
